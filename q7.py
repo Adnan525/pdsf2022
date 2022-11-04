@@ -28,12 +28,12 @@ y_pred = knn.predict(X_test)
 
 # function to generate the confusion matrix
 def get_confusion_matrix(true_list, predicted_list, class_labels):
-    c_matrix = pd.crosstab(predicted_list, true_list)
-    c_matrix = c_matrix.set_axis(class_labels, axis=0, inplace=False)
-    c_matrix = c_matrix.set_axis(class_labels, axis=1, inplace=False)
-    return c_matrix
+    confusionMatrix = pd.crosstab(predicted_list, true_list)
+    confusionMatrix = confusionMatrix.set_axis(class_labels, axis=0, inplace=False)
+    confusionMatrix = confusionMatrix.set_axis(class_labels, axis=1, inplace=False)
+    return confusionMatrix
 
 
 labels = ['Setosa', 'Versicolour', 'Virginica']
-confusion_matrix = get_confusion_matrix(y_test, y_pred, labels)
-print(confusion_matrix)
+confusionMatrix = get_confusion_matrix(y_test, y_pred, labels)
+print(confusionMatrix)
