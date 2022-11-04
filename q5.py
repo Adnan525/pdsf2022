@@ -23,10 +23,20 @@ dfU = df[df["StudentID"].str.startswith("u")]
 
 # change to numeric before sorting
 dfS["Ass2"] = pd.to_numeric(dfS["Ass2"])
-dfU["FE"] = pd.to_numeric(dfS["FE"])
+# dfU["FE"] = pd.to_numeric(dfS["FE"], errors="coerce")
 
 # order
+# dfs works without an issue after to_numeric conversion
 dfS = dfS.sort_values(by = "Ass2", ascending= False)
+
+# dfU does not work just by converting to numeric
+# I need to convert the values to int and add as a column
+# once I sort the value it works
+temp = dfU["FE"]
+myList = []
+for i in temp:
+    myList.append(int(i))
+dfU["FE"] = myList
 dfU = dfU.sort_values(by = "FE", ascending= True)
 
 # save the file
