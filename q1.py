@@ -1,0 +1,13 @@
+x = [[a*b for a in range(2,6)] for b in range(3,9)]
+y = x[slice(1, 3)]
+z = x[slice(3, 4)]
+tTemp = x[slice(len(x)-3, len(x)-2)]
+t = x[len(x)-2:: -4]
+u = x[slice(3, 4)]
+u = x[-2]
+u = u[::2]
+print('x =', x)
+print('y =', y)
+print('z =', z)
+print('t =', t)
+print('u =', u)
